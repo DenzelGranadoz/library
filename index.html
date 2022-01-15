@@ -14,13 +14,13 @@
   <section class="bookshelf">
     <div class="bookshelf-container">
       <div class="book" id="0">
-        <div class="title">
+        <div class="book-title">
           <span>Title</span>
         </div>
-        <div class="author">
+        <div class="book-author">
           <span>Author</span>
         </div>
-        <div class="pages">
+        <div class="book-pages">
           <span>Pages</span>
         </div>
         <button type="button" class="book-btn" id="read-btn">Read</button>
@@ -28,11 +28,18 @@
       </div>
       <div class="book" id="add-book">+</div>
     </div>
+    <form class="new-book-form">
+      <input type="text" class="form-input-box" id="form-title" placeholder="Title"><br>
+      <input type="text" class="form-input-box" id="form-author" placeholder="Author"><br>
+      <input type="number" class="form-input-box" id="form-pages" placeholder="No. of Pages"><br>
+      <span><input type="checkbox" id="read" name="read" value="no">
+      <label for="read"> I have Read this book</label></span><br>
+      <input type="submit" class="book-btn" id="add-btn" value="Add Book">
+    </form>
   </section>
   <footer class="footer">
-    <a href="https://github.com/LGZel" target="_blank">© Denzel Granadoz</a>
+    <a href="https://github.com/DenzelGranadoz" target="_blank">© Denzel Granadoz</a>
   </footer>
-  
   <script src="script.js"></script>
 </body>
 </html>
