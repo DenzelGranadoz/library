@@ -12,10 +12,23 @@
       <h1>Library</h1>
   </nav>
   <section class="bookshelf">
+    <form name="form" class="new-book-form">
+      <div class="form-title">
+        <h3>Add Book</h3>
+        <span><a href="#" class="form-close">X</a></span>
+      </div>
+      <input type="text" class="form-input-box" id="form-title" name="title" placeholder="Title"><br>
+      <input type="text" class="form-input-box" id="form-author" name="author" placeholder="Author"><br>
+      <input type="number" class="form-input-box" id="form-pages" name="pages" placeholder="No. of Pages"><br>
+      <span><input type="checkbox" id="form-read" name="read" > 
+      <label for="read"> I have Read this book</label></span><br>
+      <input type="submit" class="book-btn" id="add-btn" value="Add Book">
+    </form>
+
     <div class="bookshelf-container">
-      <div class="book" id="0">
+      <div class="book" id="sample">
         <div class="book-title">
-          <span>Title</span>
+          <!-- <span>Title</span> -->Title
         </div>
         <div class="book-author">
           <span>Author</span>
@@ -26,16 +39,11 @@
         <button type="button" class="book-btn" id="read-btn">Read</button>
         <button type="button" class="book-btn" id="remove-btn">Remove</button>
       </div>
-      <div class="book" id="add-book">+</div>
+      <div class="book" id="open-form">+</div>
     </div>
-    <form class="new-book-form">
-      <input type="text" class="form-input-box" id="form-title" placeholder="Title"><br>
-      <input type="text" class="form-input-box" id="form-author" placeholder="Author"><br>
-      <input type="number" class="form-input-box" id="form-pages" placeholder="No. of Pages"><br>
-      <span><input type="checkbox" id="read" name="read" value="no">
-      <label for="read"> I have Read this book</label></span><br>
-      <input type="submit" class="book-btn" id="add-btn" value="Add Book">
-    </form>
+
+
+
   </section>
   <footer class="footer">
     <a href="https://github.com/DenzelGranadoz" target="_blank">© Denzel Granadoz</a>
