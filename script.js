@@ -1,7 +1,10 @@
+//to do
+//toggle read button
+//save to local storage
+
 //variables
 let myLibrary = [];
 let emptyField = 0;
-
 
 //selectors / event listeners
 const Form = document.querySelector(".new-book-form");
@@ -12,6 +15,8 @@ const addBook = document.getElementById("add-btn");
 openForm.addEventListener("click", () => Form.style.visibility = "visible");
 closeForm.addEventListener("click", () => Form.style.visibility = "hidden");
 addBook.addEventListener('click', addBookToLibrary);
+
+window.addEventListener('DOMContentLoaded', addSampleBooks);
 
 //classes
 class Book {
@@ -25,8 +30,10 @@ class Book {
 
 //functions
 function addBookToLibrary(e) {
-  validateForm();
+  validateFormFields();
   if(emptyField === 1) return;  
+
+  e.preventDefault();
   const title = document.getElementById("form-title");
   const author = document.getElementById("form-author");
   const pages = document.getElementById("form-pages");
@@ -40,7 +47,7 @@ function addBookToLibrary(e) {
   displayBooks();
 }
 
-function validateForm() {
+function validateFormFields() {
   let titleField = document.forms["form"]["title"].value;
   let authorField = document.forms["form"]["author"].value;
   let pagesField = document.forms["form"]["pages"].value;
@@ -51,50 +58,57 @@ function validateForm() {
 }
 
 function displayBooks() {
-  //delete existing list then create it again if a book gets deleted
+  //remove all the books to avoid duplication of books
+  const allBooks = document.querySelectorAll('.book');
+  allBooks.forEach((book) => book.remove());
   for(let i = 0; i < myLibrary.length; i++) {
     createBook(myLibrary[i]);
   }
 }
 
-
-//sundae sched
-//fix logic flow of adding elements to DOM
 function createBook(book) {
-  //access book related elements
-  //attach respective classes to each element
   const bookShelf = document.querySelector('.bookshelf-container'); 
-  const displayBook = document.querySelector('.book');
   const newBook = document.createElement('div');
   const bookTitle = document.createElement('div');
   const bookAuthor = document.createElement('div');
   const bookPages = document.createElement('div');
   const bookRead = document.createElement('button');
   const bookRemove = document.createElement('button');
-  const newSpan = document.createElement('span');
 
-  //fix logic flow 
-  
+  //adding of classes/id and appending elements to respective parentElement 
   newBook.classList.add('book');
+  bookRemove.setAttribute("id", myLibrary.indexOf(book));
 
-  //add id based on index in myLibrary array
-
-  //do this for each element and append to parent element
-  //remove span and put text directly to div
   bookTitle.classList.add('book-title');
-  const titleSpan = newSpan;
-  newSpan.innerHTML = book.title;
-  bookTitle.appendChild(titleSpan);
   bookTitle.innerHTML = book.title;
-  console.log(bookTitle)
-  displayBook.appendChild(bookTitle);
-
+  newBook.appendChild(bookTitle);
 
   bookAuthor.classList.add('book-author');
+  bookAuthor.innerHTML = book.author;
+  newBook.appendChild(bookAuthor);
 
   bookPages.classList.add('book-pages');
+  bookPages.innerHTML = book.pages + " pages";
+  newBook.appendChild(bookPages);
 
   bookRead.classList.add('book-btn');
+  bookRead.setAttribute("id", "read-btn");
+  bookRead.innerHTML = 'Read';
+  newBook.appendChild(bookRead);
 
   bookRemove.classList.add('book-btn');
+  bookRemove.setAttribute("id", "remove-btn");
+  bookRemove.innerHTML = 'Remove';
+  newBook.appendChild(bookRemove);
+
+  bookShelf.appendChild(newBook);
+}
+
+function addSampleBooks() {
+  const book = {
+    title: 'Grit',
+    author: 'Angela Duckworth',
+    pages: 440
+  };
+  myLibrary.push(book);
 }
