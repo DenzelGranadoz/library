@@ -2,7 +2,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: 'Arial', sans-serif;
+  font-family: 'Dongle', sans-serif;
 }
 
 body {
@@ -15,10 +15,24 @@ body {
 
 .navbar {
   height: 10vh;
-  font-size: 2rem;
+  padding: 3rem 20rem;
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
+}
+
+.navbar h1 {
+  font-size: 6rem;
+}
+
+.navbar ul {
+  display: flex;
+  font-size: 2rem;
+}
+
+.navbar ul li {
+  list-style: none;
+  margin-left: 1rem;
 }
 
 .bookshelf {
@@ -29,48 +43,92 @@ body {
 
 .bookshelf-container{
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   grid-auto-rows: 1fr;
   grid-gap: 1rem;
 }
 
 .book {
-  height: 330px;
-  border: 5px solid black;
+  position: relative;
+  height: 200px;
+  border: 1px solid black;
+  box-shadow: 2px 4px;
   border-radius: 20px;
-  padding: 1rem;
+  padding: 5px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  font-size: 1.5rem;
+  background-color: #03a89b;
+  font-weight: 300;
+  line-height: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.book:hover {
+  opacity: 50%;
+}
+
+.book-title {
   font-size: 2rem;
+  font-weight: 700;
+  padding-top: 10px;
+  width: 95%;
+  text-align: center;
+}
+
+.buttons {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  width: 90%;
+  justify-content: space-around;
+  
 }
 
 .book-btn {
   height: 2.5rem;
-  width: 40%;
+  width: 2.5rem;
   border-radius: 20px;
-  border: none;
   background-color: #FF6961;
   border: 3px solid black;
+  display: none;
+}
+
+.book:hover > .buttons > .book-btn {
+  display: inline-block;
+  opacity: 100%;
+}
+ 
+#read-btn {
+  width: 5rem;
 }
 
 .book-btn:hover {
-  font-size: 1.3rem;
-  height: 2.5rem;
-  width: 50%;
+  cursor: pointer;
 }
 
-#add-book {
+.add-book {
+  height: 200px;
+  border: 5px solid black;
+  border-radius: 20px;
+  display: grid;
+  font-size: 2rem;
+}
+
+#open-form {
   align-items: center;
   justify-content: center;
   font-size: 10rem;
   background-color: #03a89b80;
 }
 
-#add-book:hover {
+#open-form:hover {
   font-size:15rem;
   background-color: #03a89b;
+  cursor: pointer;
 }
 
 .new-book-form {
@@ -99,8 +157,21 @@ body {
   border: none;
 }
 
+.form-title {
+  display: Flex;
+  justify-content: space-between;
+  width: 90%;
+}
+
+.form-close {
+  color: Black;
+  text-decoration: none;
+  font-size: 1.5rem;
+}
+
 #add-btn {
   background-color: lightgreen;
+  padding: 0.5rem;
 }
 
 .footer {

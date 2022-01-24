@@ -5,11 +5,27 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Dongle:wght@300;400;700&display=swap" rel="stylesheet">
   <title>Library</title>
 </head>
 <body>
   <nav class="navbar">
-      <h1>Library</h1>
+    <h1>Library</h1>
+    <ul>
+      <!-- <a href="https://www.flaticon.com/free-icons/books" title="books icons">Books icons created by Freepik - Flaticon</a> -->
+      <!-- <a href="https://www.flaticon.com/free-icons/book" title="book icons">Book icons created by mikan933 - Flaticon</a> -->
+      <!-- <a href="https://www.flaticon.com/free-icons/tick" title="tick icons">Tick icons created by Freepik - Flaticon</a> -->
+      <li class="number-of-books">
+        <img src="./images/books.png" alt="Read Books" width="35" height="35">
+        <span>1</span>
+      </li>
+      <li class="read-books">
+        <img src="./images/open-book.png" alt="Read Books" width="35" height="35">
+        <span>0</span>
+      </li>
+    </ul>
   </nav>
   <section class="bookshelf">
     <form name="form" class="new-book-form">
@@ -26,20 +42,23 @@
     </form>
 
     <div class="bookshelf-container">
+      <div class="add-book" id="open-form">+</div>
       <div class="book" id="sample">
         <div class="book-title">
-          <!-- <span>Title</span> -->Title
+          Grit
         </div>
         <div class="book-author">
-          <span>Author</span>
+          By: Angela Duckworth
         </div>
         <div class="book-pages">
-          <span>Pages</span>
+          440 pages
         </div>
-        <button type="button" class="book-btn" id="read-btn">Read</button>
-        <button type="button" class="book-btn" id="remove-btn">Remove</button>
+        <div class="buttons">
+          <button type="button" class="book-btn" id="read-btn">Read</button>
+          <button type="button" class="book-btn" id="remove-btn">X</button>
+        </div>
       </div>
-      <div class="book" id="open-form">+</div>
+      
     </div>
 
 
