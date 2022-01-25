@@ -51,7 +51,7 @@ body {
 .book {
   position: relative;
   height: 200px;
-  border: 1px solid black;
+  border: 2px solid black;
   box-shadow: 2px 4px;
   border-radius: 20px;
   padding: 5px;
@@ -66,7 +66,7 @@ body {
 }
 
 .book:hover {
-  opacity: 50%;
+  background-color: #00000099;
 }
 
 .book-title {
@@ -93,13 +93,13 @@ body {
   width: 2.5rem;
   border-radius: 20px;
   background-color: #FF6961;
-  border: 3px solid black;
+  border: 1px solid white;
   display: none;
+  font-size: 2rem;
 }
 
 .book:hover > .buttons > .book-btn {
   display: inline-block;
-  opacity: 100%;
 }
  
 #read-btn {
@@ -112,36 +112,29 @@ body {
 
 .add-book {
   height: 200px;
-  border: 5px solid black;
+  border: 2px solid black;
+  box-shadow: 2px 4px;
   border-radius: 20px;
-  display: grid;
-  font-size: 2rem;
-}
-
-#open-form {
-  align-items: center;
-  justify-content: center;
   font-size: 10rem;
-  background-color: #03a89b80;
+  text-align: center;
+  background-color: #03a89b99;
 }
 
-#open-form:hover {
-  font-size:15rem;
+.add-book:hover {
   background-color: #03a89b;
   cursor: pointer;
 }
 
 .new-book-form {
-  border: 5px solid black;
+  border: 2px solid black;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  height: 330px;
-  width: 25%;
+  height: 275px;
+  width: 18%;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
   align-items: center;
   padding: 1rem;
   background-color: #03a89b;
@@ -155,6 +148,11 @@ body {
   padding: 1rem;
   border-radius: 20px;
   border: none;
+  margin-bottom: 0.5rem;
+}
+
+#form-read:hover {
+  cursor: pointer;
 }
 
 .form-title {
@@ -171,19 +169,39 @@ body {
 
 #add-btn {
   background-color: lightgreen;
-  padding: 0.5rem;
+  border: 1px solid white;
+  border-radius: 20px;
+  width: 6rem;
+  font-size: 1.5rem;
+}
+
+#add-btn:hover {
+  cursor: pointer;
 }
 
 .footer {
-  text-align: center;
   height: 2rem;
-  width: 100%;
+  width: 94%;
   position: absolute;
   bottom: 0;
 }
 
 .footer a {
   color: black;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   font-style: bold;
+  text-decoration: none;
+}
+
+.footer-tags {
+  margin: 0 auto;
+  width: 20%;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.footer-tags p {
+  font-size: 1.5rem;
+  font-weight: 700;
+  
 }
