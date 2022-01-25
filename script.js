@@ -1,5 +1,9 @@
 //to do
+//fix createBook()
+//update bookStats section
+//fix forms
 //toggle read button
+//when last index of displaying book, display add book card
 //save to local storage
 
 //variables
@@ -15,8 +19,7 @@ const addBook = document.getElementById("add-btn");
 openForm.addEventListener("click", () => Form.style.visibility = "visible");
 closeForm.addEventListener("click", () => Form.style.visibility = "hidden");
 addBook.addEventListener('click', addBookToLibrary);
-
-window.addEventListener('DOMContentLoaded', addSampleBooks);
+window.addEventListener('DOMContentLoaded', addSampleBook);
 
 //classes
 class Book {
@@ -61,9 +64,14 @@ function displayBooks() {
   //remove all the books to avoid duplication of books
   const allBooks = document.querySelectorAll('.book');
   allBooks.forEach((book) => book.remove());
+
+  const openForm = document.querySelector('#open-form');
+  const bookShelf = document.querySelector('.bookshelf-container'); 
+  openForm.remove();
   for(let i = 0; i < myLibrary.length; i++) {
     createBook(myLibrary[i]);
   }
+  bookShelf.appendChild(openForm);
 }
 
 function createBook(book) {
@@ -72,6 +80,7 @@ function createBook(book) {
   const bookTitle = document.createElement('div');
   const bookAuthor = document.createElement('div');
   const bookPages = document.createElement('div');
+  const bookButtons = document.createElement('div');
   const bookRead = document.createElement('button');
   const bookRemove = document.createElement('button');
 
@@ -84,31 +93,57 @@ function createBook(book) {
   newBook.appendChild(bookTitle);
 
   bookAuthor.classList.add('book-author');
-  bookAuthor.innerHTML = book.author;
+  bookAuthor.innerHTML = "By: " + book.author;
   newBook.appendChild(bookAuthor);
 
   bookPages.classList.add('book-pages');
   bookPages.innerHTML = book.pages + " pages";
   newBook.appendChild(bookPages);
 
+  bookButtons.classList.add('buttons');
+  newBook.appendChild(bookButtons);
+
   bookRead.classList.add('book-btn');
   bookRead.setAttribute("id", "read-btn");
-  bookRead.innerHTML = 'Read';
-  newBook.appendChild(bookRead);
+  if(book.read === false) bookRead.innerHTML = 'Not Read';
+  else {
+    bookRead.innerHTML = "Read";
+    bookRead.style.backgroundColor = 'lightgreen';
+  }
+  bookButtons.appendChild(bookRead);
 
   bookRemove.classList.add('book-btn');
   bookRemove.setAttribute("id", "remove-btn");
-  bookRemove.innerHTML = 'Remove';
-  newBook.appendChild(bookRemove);
+  bookRemove.innerHTML = 'X';
+  bookButtons.appendChild(bookRemove);
 
   bookShelf.appendChild(newBook);
+
+  //addeventlistener to button then a counter for the stats
+  //if else to check if book has been read yet or not
 }
 
-function addSampleBooks() {
+function addSampleBook() {
   const book = {
     title: 'Grit',
     author: 'Angela Duckworth',
-    pages: 440
-  };
+    pages: 440,
+    read: false
+  }
+  const book1 = {
+    title: 'Atomic Habits',
+    author: 'James Clear',
+    pages: 322,
+    read: true
+  }
   myLibrary.push(book);
+  myLibrary.push(book1);
+  displayBooks();
+}
+
+//inside this function 
+//change color
+//access the object to change value of read
+function readStatusButton() {
+  //
 }
