@@ -121,6 +121,7 @@ function createBook(book) {
       bookRead.innerHTML = "Not Read";
       bookRead.style.backgroundColor = 'tomato';
     }
+    console.log(myLibrary)
     updateBookCount();
   });
   bookButtons.appendChild(bookRead);
@@ -129,11 +130,10 @@ function createBook(book) {
   bookRemove.setAttribute("id", "remove-btn");
   bookRemove.addEventListener("click", () => {
     newBook.remove();
-    myLibrary.splice(myLibrary.indexOf(book));
-    updateBookCount();
+    myLibrary.splice(myLibrary.indexOf(book), 1);
+    console.log(myLibrary.length)
     if(book.read === true) count--;
-    console.log(myLibrary)
-    
+    updateBookCount();
   });
   bookRemove.innerHTML = 'X';
   bookButtons.appendChild(bookRemove);
