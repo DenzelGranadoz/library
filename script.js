@@ -1,5 +1,4 @@
 //to do
-//update bookStats section
 //save to local storage
 
 //variables
@@ -122,6 +121,7 @@ function createBook(book) {
       bookRead.innerHTML = "Not Read";
       bookRead.style.backgroundColor = 'tomato';
     }
+    updateBookCount();
   });
   bookButtons.appendChild(bookRead);
 
@@ -130,6 +130,10 @@ function createBook(book) {
   bookRemove.addEventListener("click", () => {
     newBook.remove();
     myLibrary.splice(myLibrary.indexOf(book));
+    updateBookCount();
+    if(book.read === true) count--;
+    console.log(myLibrary)
+    
   });
   bookRemove.innerHTML = 'X';
   bookButtons.appendChild(bookRemove);
@@ -150,5 +154,8 @@ function addSampleBook() {
 }
 
 function updateBookCount() {
-  
+  const numberOfBooks = document.getElementsByTagName('span')[0];
+  numberOfBooks.innerHTML = myLibrary.length;
+  const numberOfReadBooks = document.getElementsByTagName('span')[1];
+  numberOfReadBooks.innerHTML = count;
 }
