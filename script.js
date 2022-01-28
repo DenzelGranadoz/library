@@ -1,6 +1,3 @@
-//to do
-//save to local storage
-
 //variables
 let myLibrary = [];
 let emptyField = 0;
@@ -40,7 +37,7 @@ function addBookToLibrary(e) {
 
   let newBook = new Book(title, author, pages, read);
   myLibrary.push(newBook);
-  console.log(myLibrary);
+  saveLocalStorage();
   Form.style.visibility = "hidden";
   Form.reset();
   displayBooks();
@@ -121,7 +118,7 @@ function createBook(book) {
       bookRead.innerHTML = "Not Read";
       bookRead.style.backgroundColor = 'tomato';
     }
-    console.log(myLibrary)
+    saveLocalStorage();
     updateBookCount();
   });
   bookButtons.appendChild(bookRead);
@@ -131,9 +128,9 @@ function createBook(book) {
   bookRemove.addEventListener("click", () => {
     newBook.remove();
     myLibrary.splice(myLibrary.indexOf(book), 1);
-    console.log(myLibrary.length)
     if(book.read === true) count--;
     updateBookCount();
+    saveLocalStorage();
   });
   bookRemove.innerHTML = 'X';
   bookButtons.appendChild(bookRemove);
@@ -149,7 +146,7 @@ function addSampleBook() {
     pages: 440,
     read: false
   };
-  myLibrary.push(books);
+  myLibrary.unshift(books);
   displayBooks();
 }
 
@@ -159,3 +156,22 @@ function updateBookCount() {
   const numberOfReadBooks = document.getElementsByTagName('span')[1];
   numberOfReadBooks.innerHTML = count;
 }
+
+function saveLocalStorage() {
+  window.localStorage.setItem('myLibrary', JSON.stringify(myLibrary));
+}
+
+function loadLocalStorage() {
+  const lib = localStorage.getItem('myLibrary');
+  if(lib) {
+    let books = window.localStorage.getItem('myLibrary');
+    books = JSON.parse(books);
+    myLibrary = books;
+    myLibrary.splice(myLibrary[0], 1);
+    displayBooks();
+  } else {
+    displayBooks();
+  }
+}
+
+loadLocalStorage();
