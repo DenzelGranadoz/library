@@ -12,7 +12,7 @@ const addBook = document.getElementById("add-btn");
 openForm.addEventListener("click", () => Form.style.visibility = "visible");
 closeForm.addEventListener("click", () => Form.style.visibility = "hidden");
 addBook.addEventListener('click', addBookToLibrary);
-window.addEventListener('DOMContentLoaded', addSampleBook);
+// window.addEventListener('DOMContentLoaded', addSampleBook);
 
 //classes
 class Book {
@@ -167,11 +167,11 @@ function loadLocalStorage() {
     let books = window.localStorage.getItem('myLibrary');
     books = JSON.parse(books);
     myLibrary = books;
-    myLibrary.splice(myLibrary[0], 1);
     displayBooks();
   } else {
     displayBooks();
   }
 }
 
+addSampleBook();
 loadLocalStorage();
