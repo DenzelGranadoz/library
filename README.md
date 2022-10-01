@@ -23,9 +23,10 @@ This is a [library](https://www.theodinproject.com/courses/javascript/lessons/li
 - Add book form which contains all the information of the book.
 - Book has Author, Book Title and Number of pages displayed.
 
+## Improvements
+- Addition of Media Queries (Page Responsiveness)
+
+## Credits 
 - Credits for the book icons from flaticon.com
 - First icon is created by [Freepik](https://www.flaticon.com/free-icons/books)
 - Second icon is created by [mikan933](https://www.flaticon.com/free-icons/book)
-
-## Improvements
-- Addition of Media Queries (Page Responsiveness)
