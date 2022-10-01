@@ -2,7 +2,7 @@
 This is a [library](https://www.theodinproject.com/courses/javascript/lessons/library) project from [The Odin Project](https://www.theodinproject.com) created with HTML, CSS and JavaScript, topics includes the use of objects and constructors.
 
 ## Screenshots
-<img width="1680" alt="Screen Shot 2022-10-01 at 12 23 03 PM" src="https://user-images.githubusercontent.com/84443588/193392378-00e9f744-5aee-413b-aeae-d7493a1f6e0a.png">
+<img width="1680" alt="Screen Shot 2022-10-01 at 12 39 56 PM" src="https://user-images.githubusercontent.com/84443588/193392838-4d759724-b0bb-45a2-93c3-b984a7bc4c06.png">
 <img width="1680" alt="Screen Shot 2022-10-01 at 12 23 26 PM" src="https://user-images.githubusercontent.com/84443588/193392383-55e40d18-1682-4655-b75c-61d2d598b8a9.png">
 
 ## Demo
